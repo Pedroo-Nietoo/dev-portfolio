@@ -46,8 +46,9 @@ export default function Home() {
       }
     });
 
+    const currentSections = { ...sectionsRef.current };
     return () => {
-      Object.values(sectionsRef.current).forEach((el) => {
+      Object.values(currentSections).forEach((el) => {
         if (el) observer.unobserve(el);
       });
     };
@@ -119,13 +120,13 @@ export default function Home() {
         <aside className="ml-[calc(45%+1rem)] flex-1">
           <div id="about" className="scroll-mt-24">
             <p className="mb-4">
-              I’m a developer passionate about crafting accessible, robust and scalable applications that blend
+              I&apos;m a developer passionate about crafting accessible, robust and scalable applications that blend
               thoughtful design with robust engineering. My favorite work lies at the intersection of design and
               development, creating experiences that not only look great but are meticulously built for performance and
               usability.
             </p>
             <p className="mb-4">
-              Currently, I'm a Mid-level Full-Stack Software Developer at
+              Currently, I&apos;m a Mid-level Full-Stack Software Developer at
               <a className="text-white font-semibold cursor-pointer hover:text-teal-300 duration-300" href="https://www.capgemini.com/">
                 {" "}
                 Capgemini
@@ -133,7 +134,7 @@ export default function Home() {
               , specializing in backend development. I contribute to the design and maintenance of services and BFFs consumed by Micro Front-ends (WebApps), leveraging Hexagonal Architecture and ensuring adherence to accessibility standards and development best practices.
             </p>
             <p className="mb-4">
-              In the past, I've had the opportunity to develop software in a variety of environments — from
+              In the past, I&apos;ve had the opportunity to develop software in a variety of environments — from
               <a className="text-white font-semibold cursor-pointer hover:text-teal-300 duration-300" href="https://www.intelbras.com/pt-br/">
                 {" "}
                 security, connectivity, and energy companies

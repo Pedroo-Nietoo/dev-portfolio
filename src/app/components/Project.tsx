@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 type ProjectProps = {
  name: string;
@@ -22,10 +23,12 @@ export default function Project({
    target="_blank"
    rel="noopener noreferrer"
   >
-   <img
+   <Image
     src={`/images/${image}.png`}
     alt={name}
-    className="w-36 h-22 object-cover rounded-md"
+    width={144}
+    height={80}
+    className="object-contain rounded-md"
    />
    <div className="flex flex-col">
     <h3 className="group/card text-white font-semibold tracking-wide transition-colors duration-300 hover:text-teal-300">
