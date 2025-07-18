@@ -10,14 +10,16 @@ export default function Home() {
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
 
   useEffect(() => {
-    const glow = document.getElementById("mouse-glow");
-    const handleMouseMove = (e: MouseEvent) => {
-      if (glow) {
-        glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-      }
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    if (window.matchMedia('(pointer: fine)').matches) {
+      const glow = document.getElementById("mouse-glow");
+      const handleMouseMove = (e: MouseEvent) => {
+        if (glow) {
+          glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        }
+      };
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
   }, []);
 
   useEffect(() => {
@@ -32,8 +34,8 @@ export default function Home() {
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.3,
+        rootMargin: "0px 0px -40% 0px",
+        threshold: 0.2,
       }
     );
 
@@ -55,16 +57,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="px-20 py-24 h-screen overflow-auto mx-auto scroll-smooth">
+    <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 scroll-smooth">
       <div
         id="mouse-glow"
-        className="pointer-events-none fixed top-0 left-0 z-50 w-48 h-48 rounded-full bg-blue-600/40 blur-[120px]"
+        className="pointer-events-none fixed top-0 left-0 z-50 w-48 h-48 rounded-full bg-blue-600/40 blur-[120px] hidden lg:block"
       ></div>
 
-      <div className="flex">
-        <main className="fixed top-24 left-20 w-[calc(40%-1rem)]">
-          <div className="flex flex-col justify-between h-full">
-            <div className="flex flex-col mb-36">
+      <div className="lg:flex lg:gap-16">
+        <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-2/5 lg:flex-col lg:justify-between lg:py-24">
+          <div>
+            <div className="flex flex-col mb-16">
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Pedro Nieto</h1>
               <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
                 Full-Stack Software Developer
@@ -74,7 +76,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-8 w-40">
+            <nav className="hidden lg:block">
               <ul className="flex flex-col gap-4 text-slate-200 tracking-wide">
                 {["about", "experience", "projects"].map((id) => (
                   <li key={id}>
@@ -101,24 +103,24 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-
-              <div className="flex gap-6 mt-8">
-                <a href="https://github.com/Pedroo-Nietoo" target="_blank" rel="noopener noreferrer">
-                  <Github className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
-                </a>
-                <a href="https://www.linkedin.com/in/pedroo-nietoo/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
-                </a>
-                <a href="https://www.instagram.com/pedroo_nietoo/" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
-                </a>
-              </div>
-            </div>
+            </nav>
           </div>
-        </main>
 
-        <aside className="ml-[calc(45%+1rem)] flex-1">
-          <div id="about" className="scroll-mt-24">
+          <div className="flex gap-6 mt-8">
+            <a href="https://github.com/Pedroo-Nietoo" target="_blank" rel="noopener noreferrer">
+              <Github className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
+            </a>
+            <a href="https://www.linkedin.com/in/pedroo-nietoo/" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
+            </a>
+            <a href="https://www.instagram.com/pedroo_nietoo/" target="_blank" rel="noopener noreferrer">
+              <Instagram className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
+            </a>
+          </div>
+        </header>
+
+        <main className="pt-24 lg:w-3/5 lg:py-24">
+          <section id="about" className="scroll-mt-24 mb-16 md:mb-24">
             <p className="mb-4">
               I&apos;m a developer passionate about crafting accessible, robust and scalable applications that blend
               thoughtful design with robust engineering. My favorite work lies at the intersection of design and
@@ -155,11 +157,12 @@ export default function Home() {
             <p className="mb-40">
               In my spare time, I’m usually studying, reading, playing volleyball or running. I also enjoy contributing to open-source projects and exploring new technologies. I’m always eager to learn and grow.
             </p>
-          </div>
+          </section>
 
-          <section id="experience" className="flex flex-col gap-4 scroll-mt-24 group">
+          <h3 className="block sm:hidden text-2xl font-semibold mb-6">Experience</h3>
+          <section id="experience" className="scroll-mt-24 group/list mb-16 md:mb-24">
             <div className="flex flex-col gap-4">
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Experience
                   from="JUL 2025"
                   to="Present"
@@ -170,7 +173,7 @@ export default function Home() {
                   stack={["Java", "Spring", "Maven", "JUnit", "Mockito", "Swagger"]}
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Experience
                   from="APR 2024"
                   to="JUL 2025"
@@ -181,7 +184,7 @@ export default function Home() {
                   stack={["TypeScript", "Node.js", "NestJS", "Angular", "Bootstrap", "SASS", "MySQL", "MongoDB", "Knex.js", "Swagger", "TypeORM", "OpenAI", "Compodoc"]}
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Experience
                   from="FEB 2024"
                   to="APR 2024"
@@ -192,7 +195,7 @@ export default function Home() {
                   stack={["Cypress", "Jira", "Confluence", "BitBucket", "TypeScript", "Angular", "Bootstrap", "Node.js"]}
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Experience
                   from="FEB 2024"
                   to="FEB 2023"
@@ -204,21 +207,21 @@ export default function Home() {
                 />
               </div>
             </div>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-4 font-semibold hover:text-teal-300 cursor-pointer flex items-center group mb-16 md:mb-24"
+            >
+              View full Résumé
+              <ArrowUpRight className="inline h-5 ml-1 text-slate-300 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-teal-300" />
+            </a>
           </section>
 
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="py-8 font-semibold hover:text-teal-300 cursor-pointer flex items-center group mb-40"
-          >
-            View full Résumé
-            <ArrowUpRight className="inline h-5 ml-1 text-slate-300 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-teal-300" />
-          </a>
-
-          <section id="projects" className="flex flex-col gap-4 mb-40 scroll-mt-24 group">
+          <h3 className="block sm:hidden text-2xl font-semibold mb-6 mt-24">Projects</h3>
+          <section id="projects" className="scroll-mt-24 group/list mb-16 md:mb-24">
             <div className="flex flex-col gap-4">
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Project
                   name="Nietubank-API"
                   description="Backend API for a banking application, built with Spring and PostgreSQL, featuring user authentication, pix key and transaction management, and account operations."
@@ -227,7 +230,7 @@ export default function Home() {
                   stack={["Java", "Spring", "PostgreSQL", "Swagger", "Docker"]}
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Project
                   name="Chat AI"
                   description="AI chat website built using Vercel SDK, GitHub OAuth and OpenAI"
@@ -236,7 +239,7 @@ export default function Home() {
                   stack={["Next.js", "GitHub OAuth", "OpenAI", "Vercel", "Tailwind CSS"]}
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Project
                   name="Serverless URL Shortener"
                   description="Private serverless URL shortener service built using SOLID and AWS DynamoDB"
@@ -245,7 +248,7 @@ export default function Home() {
                   stack={["AWS Lambda", "DynamoDB", "Java", "Spring"]}
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Project
                   name="Node.js Logger"
                   description="Simple Node.js logger library that provides a simple interface for logging messages to the console and files."
@@ -253,7 +256,7 @@ export default function Home() {
                   image="node-logger"
                 />
               </div>
-              <div className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-300">
+              <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
                 <Project
                   name="Prisma Schema Docs"
                   description="Documentation generator for Prisma schemas, providing a simple way to create and maintain API documentation. The generated documentation is available in HTML and Markdown format and can be easily hosted on any static file server."
@@ -264,17 +267,17 @@ export default function Home() {
             </div>
           </section>
 
+          <footer className="text-slate-400 text-sm mt-16 md:mt-24 text-center sm:text-left">
 
-          <footer className="text-slate-200 text-sm">
             <p>© {new Date().getFullYear()}
               <a
-                className="text-white font-semibold cursor-pointer hover:text-teal-300 duration-300"
+                className="text-slate-200 font-semibold cursor-pointer hover:text-teal-300 duration-300"
                 href="https://github.com/Pedroo-Nietoo"
-              > Pedroo-Nietoo
+              > Pedro Nieto
               </a>
               . All rights reserved.</p>
           </footer>
-        </aside>
+        </main>
       </div>
     </div>
   );
