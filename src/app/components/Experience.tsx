@@ -20,20 +20,23 @@ export default function Experience({
  stack,
 }: ExperienceProps) {
  return (
-  <a className="group flex p-4 gap-16 rounded-lg hover:bg-slate-800 cursor-pointer transition-colors duration-300" href={href} target="_blank" rel="noopener noreferrer">
+  <a
+   className="flex p-4 gap-16 rounded-lg hover:bg-slate-800 cursor-pointer transition-colors duration-300"
+   href={href}
+   target="_blank"
+   rel="noopener noreferrer"
+  >
    <span className="text-sm text-slate-500 font-bold whitespace-nowrap w-32 flex-shrink-0">
     {from} — {to}
    </span>
    <div className="flex flex-col">
-    <h3 className="text-white font-semibold tracking-wide transition-colors duration-300 group-hover:text-teal-300">
+    <h3 className="group/card text-white font-semibold tracking-wide transition-colors duration-300 hover:text-teal-300">
      {position} · {company}
      <ArrowUpRight
-      className="inline h-5 mb-1 ml-1 text-slate-300 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-teal-300"
+      className="inline h-5 mb-1 ml-1 text-slate-200 transition-all duration-300 transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1 group-hover/card:text-teal-300"
      />
     </h3>
-    <p className="text-slate-400 tracking-wide text-sm">
-     {description}
-    </p>
+    <p className="text-slate-200 tracking-wide text-sm">{description}</p>
     <div className="flex flex-wrap gap-2 mt-3">
      {stack?.map((item, index) => (
       <span

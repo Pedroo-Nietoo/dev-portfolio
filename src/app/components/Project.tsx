@@ -16,20 +16,25 @@ export default function Project({
  stack
 }: ProjectProps) {
  return (
-  <a className="group flex p-4 gap-8 rounded-lg hover:bg-slate-800 cursor-pointer transition-colors duration-300" href={href} target="_blank" rel="noopener noreferrer">
+  <a
+   className="group/project flex p-4 gap-8 rounded-lg hover:bg-slate-800 cursor-pointer transition-colors duration-300"
+   href={href}
+   target="_blank"
+   rel="noopener noreferrer"
+  >
    <img
     src={`/images/${image}.png`}
     alt={name}
-    className="w-36 h-22 object-cover rounded-md group-hover:border-slate-500 group-hover:border-1"
+    className="w-36 h-22 object-cover rounded-md"
    />
    <div className="flex flex-col">
-    <h3 className="text-white font-semibold tracking-wide transition-colors duration-300 group-hover:text-teal-300">
+    <h3 className="group/card text-white font-semibold tracking-wide transition-colors duration-300 hover:text-teal-300">
      {name}
      <ArrowUpRight
-      className="inline h-5 mb-1 ml-1 text-slate-300 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-teal-300"
+      className="inline h-5 mb-1 ml-1 text-slate-200 transition-all duration-300 transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1 group-hover/card:text-teal-300"
      />
     </h3>
-    <p className="text-slate-400 tracking-wide text-sm">
+    <p className="text-slate-200 tracking-wide text-sm">
      {description}
     </p>
     <div className="flex flex-wrap gap-2 mt-3">
