@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Github, Instagram, Linkedin } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin } from "lucide-react";
 import Experience from "../components/Experience";
 import Project from "../components/Project";
 import { useEffect, useRef, useState } from "react";

@@ -2,6 +2,7 @@
 
 import { LinkBlock } from "@/components/links/LinkBlock";
 import { Github, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
  return (
@@ -9,7 +10,9 @@ export default function Home() {
    className="min-h-screen px-6 sm:px-12 md:px-20 lg:px-40 xl:px-60 pt-12 sm:pt-16 md:pt-20 scroll-smooth"
   >
    <div className="flex flex-col gap-4 items-center justify-center text-center">
-    <img
+    <Image
+     width={128}
+     height={128}
      src="https://github.com/Pedroo-Nietoo.png"
      alt="GitHub profile image"
      className="h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 rounded-full border border-white/20 mb-2 sm:mb-4"
