@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowUpRight, Github, Instagram, Linkedin } from "lucide-react";
-import Experience from "./components/Experience";
-import Project from "./components/Project";
+import Experience from "../components/Experience";
+import Project from "../components/Project";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -72,7 +72,7 @@ export default function Home() {
                 Full-Stack Software Developer
               </h2>
               <p className="mt-4 max-w-xs leading-normal">
-                I build reliable and accessible applications, thoughtfully designed for performance and usability.
+                I build performant, scalable and robust applications.
               </p>
             </div>
 
@@ -113,19 +113,13 @@ export default function Home() {
             <a href="https://www.linkedin.com/in/pedroo-nietoo/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
             </a>
-            <a href="https://www.instagram.com/pedroo_nietoo/" target="_blank" rel="noopener noreferrer">
-              <Instagram className="text-slate-500 hover:text-slate-200 transition-all duration-300" />
-            </a>
           </div>
         </header>
 
         <main className="pt-24 lg:w-3/5 lg:py-24">
           <section id="about" className="scroll-mt-24 mb-16 md:mb-24">
             <p className="mb-4">
-              I&apos;m a developer passionate about crafting accessible, robust and scalable applications that blend
-              thoughtful design with robust engineering. My favorite work lies at the intersection of design and
-              development, creating experiences that not only look great but are meticulously built for performance and
-              usability.
+              I&apos;m a Software Developer with over 3+ years of experience in building scalable, robust, and accessible applications.
             </p>
             <p className="mb-4">
               Currently, I&apos;m a Mid-level Full-Stack Software Developer at
@@ -170,7 +164,22 @@ export default function Home() {
                   position="Full-Stack Software Developer"
                   description="Working on a project on the financial sector, developing and maintaining services using Hexagonal Architecture, ensuring compliance with web accessibility standards and best practices."
                   href="https://www.capgemini.com/"
-                  stack={["Java", "Spring", "Maven", "JUnit", "Mockito", "Swagger"]}
+                  stack={[
+                    "Java",
+                    "Spring",
+                    "Microsservices",
+                    "Kafka",
+                    "MongoDB",
+                    "Docker",
+                    "Swagger",
+                    "JUnit",
+                    "Mockito",
+                    "SOLID",
+                    "Maven",
+                    "GitHub",
+                    "GitHub Actions",
+                    "Sonarqube"
+                  ]}
                 />
               </div>
               <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
@@ -181,7 +190,21 @@ export default function Home() {
                   position="Full-Stack Software Developer"
                   description="Developed and maintained advanced web platform features such as inventory and internal purchase systems for injectable products, AI-powered modules for medical automation based on patient data, certified digital document signing with A1/A3 support, multi-channel file sharing with permission-based access control, dynamic subscription plan management via toolbar interface, and continuous improvements using agile methodologies and sprint planning."
                   href="https://easy-health.app/landing-page/index.html"
-                  stack={["TypeScript", "Node.js", "NestJS", "Angular", "Bootstrap", "SASS", "MySQL", "MongoDB", "Knex.js", "Swagger", "TypeORM", "OpenAI", "Compodoc"]}
+                  stack={[
+                    "TypeScript",
+                    "Node.js",
+                    "NestJS",
+                    "Angular",
+                    "Bootstrap",
+                    "SASS",
+                    "MySQL",
+                    "MongoDB",
+                    "Knex.js",
+                    "Swagger",
+                    "TypeORM",
+                    "OpenAI",
+                    "Compodoc"
+                  ]}
                 />
               </div>
               <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
@@ -192,7 +215,16 @@ export default function Home() {
                   position="QA - Quality Assurance"
                   description="Performed comprehensive manual testing across web and mobile platforms for healthcare applications, ensuring functional accuracy and cross-device reliability. Additionally, developed automated end-to-end tests using Cypress, collaborated with developers in agile sprints, and contributed to quality assurance by identifying, documenting, and tracking issues for continuous improvement and faster delivery."
                   href="https://easy-health.app/landing-page/index.html"
-                  stack={["Cypress", "Jira", "Confluence", "BitBucket", "TypeScript", "Angular", "Bootstrap", "Node.js"]}
+                  stack={[
+                    "Cypress",
+                    "Jira",
+                    "Confluence",
+                    "BitBucket",
+                    "TypeScript",
+                    "Angular",
+                    "Bootstrap",
+                    "Node.js"
+                  ]}
                 />
               </div>
               <div className="group-hover/list:opacity-50 hover:!opacity-100 transition-opacity duration-300">
@@ -202,8 +234,19 @@ export default function Home() {
                   company="Intelbras"
                   position="Backend Software Developer"
                   description="Developed, tested, and documented a CLI tool (Guardian Partner) for canary testing API endpoints using NestJS, and implemented unit tests for Spring Boot microservices to ensure system reliability and maintainability."
-                  href="https://portal.guardian-partner.isec.intelbras.com.br/login"
-                  stack={["TypeScript", "Node.js", "NestJS", "PrismaORM", "Swagger", "Java", "Spring", "PostgreSQL", "Jest", "JUnit", "Compodoc"]}
+                  href="https://portal.guardian-partner.isec.intelbras.com.br/"
+                  stack={[
+                    "TypeScript",
+                    "NestJS",
+                    "Jest",
+                    "Supertest",
+                    "Swagger",
+                    "Java",
+                    "Spring",
+                    "PostgreSQL",
+                    "JUnit",
+                    "Compodoc"
+                  ]}
                 />
               </div>
             </div>

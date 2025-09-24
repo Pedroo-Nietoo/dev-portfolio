@@ -29,7 +29,7 @@ export default function Project({
      alt={`Screenshot of ${name}`}
      width={200}
      height={112}
-     className="object-cover rounded border-2 border-slate-200/10 transition group-hover/card:border-slate-200/30"
+     className="object-cover rounded border-2 border-slate-200/10 transition group-hover/card:border-slate-200/30 max-h-16"
     />
    </div>
 
