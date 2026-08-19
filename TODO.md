@@ -1,0 +1,1 @@
+- Add filtros de categorias (Architecture, AWS S3) para o blog, permitindo que os usuários filtrem os posts por categoria.

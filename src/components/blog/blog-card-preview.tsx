@@ -8,6 +8,7 @@ type BlogCardPreviewProps = {
  date: string;
  author: string;
  categories: string[];
+ lang: 'pt' | 'en';
 };
 
 export default function BlogCardPreview({
@@ -18,14 +19,19 @@ export default function BlogCardPreview({
  date,
  author,
  categories,
+ lang
 }: BlogCardPreviewProps) {
- const truncatedDescription =
-  description.length > 300 ? `${description.slice(0, 197).trimEnd()}...` : description;
+ const dict = {
+  pt: { by: "por", on: "em", in: "em" },
+  en: { by: "by", on: "on", in: "in" }
+ }[lang];
+
+ const truncatedDescription = description.length > 300 ? `${description.slice(0, 197).trimEnd()}...` : description;
+ const href = lang === 'pt' ? `/blog/${slug}` : `/en/blog/${slug}`;
 
  return (
   <div className="flex flex-col md:flex-row gap-6">
-   {/* Imagem clicável */}
-   <Link href={`/blog/${slug}`} className="shrink-0">
+   <Link href={href} className="shrink-0">
     <img
      className="w-full md:w-[320px] object-cover hover:opacity-90 transition-opacity"
      src={image}
@@ -34,21 +40,19 @@ export default function BlogCardPreview({
    </Link>
 
    <div className="flex flex-col gap-1">
-    {/* Título clicável com a cor azul da AWS */}
-    <Link href={`/blog/${slug}`}>
+    <Link href={href}>
      <h2 className="text-[#00529B] font-bold text-lg hover:underline leading-tight">
       {title}
      </h2>
     </Link>
 
-    {/* Metadados (Autor, Data, Categorias) */}
     <div className="text-sm text-gray-600 mt-1 mb-2">
-     <span>by {author}</span>
+     <span>{dict.by} {author}</span>
      <span className="mx-2">|</span>
-     <span>on {date}</span>
+     <span>{dict.on} {date}</span>
      <span className="mx-2">|</span>
      <span>
-      in{" "}
+      {dict.in}{" "}
       {categories.map((category, index) => (
        <span key={category}>
         <Link href="#" className="text-[#00529B] hover:underline">
@@ -60,7 +64,6 @@ export default function BlogCardPreview({
      </span>
     </div>
 
-    {/* Descrição */}
     <p className="text-gray-800 text-sm leading-relaxed">{truncatedDescription}</p>
    </div>
   </div>
