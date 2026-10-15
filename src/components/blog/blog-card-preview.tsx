@@ -26,15 +26,19 @@ export default function BlogCardPreview({
   en: { by: "by", on: "on", in: "in" }
  }[lang];
 
- const truncatedDescription = description.length > 300 ? `${description.slice(0, 197).trimEnd()}...` : description;
+ const finalImage = image
+  ? image
+  : `/api/og?category=${categories[0]}&title=${encodeURIComponent(title)}&lang=${lang}`;
+
+ const truncatedDescription = description.length > 300 ? `${description.slice(0, 297).trimEnd()}...` : description;
  const href = lang === 'pt' ? `/blog/${slug}` : `/en/blog/${slug}`;
 
  return (
   <div className="flex flex-col md:flex-row gap-6">
    <Link href={href} className="shrink-0">
     <img
-     className="w-full md:w-[320px] object-cover hover:opacity-90 transition-opacity"
-     src={image}
+     className="w-full md:w-[320px] object-cover hover:opacity-90 transition-opacity border border-gray-200"
+     src={finalImage}
      alt={`${title} cover`}
     />
    </Link>
