@@ -1,0 +1,40 @@
+---
+title: "Como o Itaú reduziu custos de armazenamento no Amazon S3"
+description: "Coordenadores, Gerentes e Engenheiros de Dados do Itaú Unibanco compartilharam como reduziram custos de armazenamento no Amazon S3 através da construção de sua Plataforma de Dados."
+date: "18 AGO 2026"
+author: "Pedro Henrique Nieto da Silva"
+categories: ["Arquitetura", "AWS S3"]
+image: "/api/og?category=Arquitetura&title=Como o Itaú reduziu custos de armazenamento no Amazon S3"
+---
+
+*Por Rafaela Lovatti, engenheira de dados no Itaú Unibanco; Jaqueline Escoaiella, Gerente de Engenharia de Dados; Thiago Branco dos Santos, Coordenador de Engenharia de Dados; Henrique Papa, especialista em Engenharia de Dados do Itaú; Osvaldo Correia, engenheiro de dados sênior no Itaú Unibanco; Kauê Oliveira, CIO no Itaú e Rubens Macegossa Dias, Arquiteto de Soluções Senior Cloud na AWS.*
+
+## Introdução
+Com uma grande variedade de serviços e aplicações, é esperado que uma alta volumetria de dados seja gerada e transmitida dentro do ecossistema de uma empresa. Também é claro imaginar que armazenar e disponibilizar estes dados para a instituição seja importante para empresas que pretendem manter-se relevantes e na vanguarda tecnológica de Dados, Analytics e Inteligência Artificial (IA).
+
+Foi neste cenário que o Itaú Unibanco construiu sua Plataforma de Dados em Prevenção a Fraudes, para recepcionar as informações de suas aplicações e transformar seus dados em ativos valiosos para o [Data Mesh](https://aws.amazon.com/pt/what-is/data-mesh/) do banco, seguindo os mesmos padrões de excelência em segurança e privacidade que fazem parte de todos os seus produtos e serviços.
+
+## Início da Plataforma
+As camadas SOR (System of Record), SOT (System of Transformation) e SPEC (Specialized Processing Engines) gerenciam diferentes estágios do ciclo de vida dos dados, desde o armazenamento bruto até a transformação e o processamento especializado. Abaixo breve descrição das camadas:
+
+- Camada SOR (System of Record): Responsável pelo armazenamento inicial dos dados brutos, funcionando como a principal referência para informações ainda não processadas;
+- Camada SOT (System of Transformation): Destinada à transformação, limpeza e preparação dos dados para análise. Nessa etapa, são aplicadas regras de negócios e ajustes necessários para garantir a qualidade das informações;
+- Camada SPEC (Specialized Processing Engines): Focada em processamentos avançados ou especializados, como execução de algoritmos de machine learning, geração de novas features a partir dos dados e transformações específicas para aprofundar as análises e gerar insights.
+
+Na construção de sua plataforma, o Itaú Unibanco levou em consideração aspectos como a latência de disponibilidade dos dados para o consumo analítico, critérios de qualidade entre camadas (SOR, SOT e SPEC) e quais ferramentas serviriam para ingerir, processar e analisar seus dados. Dessa forma, foi capaz de construir um ecossistema com alta resiliência e baixo overhead (sobrecarga) de operação.
+
+<ArticleImage 
+  src="https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2026/07/23/new-lambda-runtimes-featured-image.png" 
+  alt="Arquitetura de dados Itaú Unibanco AWS" 
+  caption="Figura 1: Desenho de camadas de dados, processamento e ingestão"
+/>
+
+Uma vez que as equipes de engenharia levaram até produção este ecossistema, as atenções voltaram-se para o consumo dos ativos e para a evolução de produtos de dados mais refinados.
+
+## Surge o Problema
+
+Com foco em novos produtos e casos de uso, o Itaú rapidamente chegou em um volume de PetaBytes de arquivos repousados em seu Amazon S3, o que resultou em um aumento acelerado em seus custos de armazenamento.
+
+Dado esse cenário, o banco traçou um plano para não só controlar o custo, como também garantir um crescimento saudável na AWS. Mesmo com o entendimento de que a resposta para este problema poderia ser a política de ciclo de vida de seu Bucket (contêiner para objetos), as equipes também sabiam que uma decisão tomada sem o devido cuidado poderia causar um problema ainda maior.
+
+Durante o planejamento, surgiram dúvidas sobre como garantir que os dados não conhecidos ou não explorados poderiam ser arquivados ou movidos para uma camada de armazenamento mais barata, qual o aumento no custo de processamento e operação para a recuperação de um dado já movido para um outro [Tier](https://aws.amazon.com/pt/s3/storage-classes/) (classe de armazenamento) e qual o ponto crítico em que os aumento de gastos com reprocessamento seriam compensados com a redução no custo de armazenamento. Sem uma análise minuciosa não seria possível responder estas perguntas com segurança.
