@@ -13,11 +13,21 @@ function normalizeText(value: string) {
     .toLowerCase();
 }
 
+export interface ArticleSummary {
+  slug: string;
+  image: string;
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  categories: string[];
+}
+
 export default function ArticleList({
   articles,
   lang,
 }: {
-  articles: any[];
+  articles: ArticleSummary[];
   lang: "pt" | "en";
 }) {
   const [currentPage, setCurrentPage] = useState(1);

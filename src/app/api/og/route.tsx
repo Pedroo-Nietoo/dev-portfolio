@@ -28,7 +28,6 @@ export async function GET(request: NextRequest) {
         `;
 
     const primaryTextColor = isDark ? "#F4F4F5" : "#111111";
-    const secondaryTextColor = isDark ? "#E4E4E7" : "#111111";
     const signatureColor = isDark ? "#A1A1AA" : "#111111";
 
     return new ImageResponse(

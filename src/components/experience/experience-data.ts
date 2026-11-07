@@ -1,7 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Bot,
-  Building2,
   Code2,
   Cpu,
   FileCheck2,

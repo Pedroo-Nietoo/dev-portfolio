@@ -2,10 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   env: {
-    NEXT_PUBLIC_ENABLE_ARTICLES:
-      process.env.NEXT_PUBLIC_ENABLE_ARTICLES ??
-      process.env.ENABLE_ARTICLES ??
-      "false",
+    ENABLE_ARTICLES_SECTION: process.env.ENABLE_ARTICLES_SECTION ?? "false",
   },
   images: {
     remotePatterns: [

@@ -4,8 +4,7 @@ import Navbar from "@/components/intro/Navbar";
 
 export default function ArticleLayout({ children }: { children: ReactNode }) {
   const isArticlesEnabled =
-    process.env.NEXT_PUBLIC_ENABLE_ARTICLES?.toLowerCase() === "true" ||
-    process.env.ENABLE_ARTICLES?.toLowerCase() === "true";
+    process.env.ENABLE_ARTICLES_SECTION?.toLowerCase() === "true";
 
   if (!isArticlesEnabled) {
     notFound();

@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getArticleBySlug } from "@/lib/article";
 import Link from "next/link";
@@ -8,48 +9,52 @@ const mdxComponents = {
   Callout: Callout,
   ArticleImage: ArticleImage,
 
-  h2: (props: any) => (
+  h2: (props: ComponentPropsWithoutRef<"h2">) => (
     <h2
       className="mt-12 mb-5 text-[28px] font-bold text-white"
       {...props}
     />
   ),
-  h3: (props: any) => (
+  h3: (props: ComponentPropsWithoutRef<"h3">) => (
     <h3
       className="mt-10 mb-4 text-[22px] font-bold text-neutral-100"
       {...props}
     />
   ),
 
-  p: (props: any) => (
+  p: (props: ComponentPropsWithoutRef<"p">) => (
     <p
       className="mb-5 text-[16px] leading-[1.625] text-neutral-300"
       {...props}
     />
   ),
 
-  a: (props: any) => (
+  a: (props: ComponentPropsWithoutRef<"a">) => (
     <a
       className="article-accent underline decoration-1 underline-offset-2 transition-colors hover:opacity-80"
       {...props}
     />
   ),
 
-  strong: (props: any) => (
+  strong: (props: ComponentPropsWithoutRef<"strong">) => (
     <strong className="font-bold text-white" {...props} />
   ),
-  em: (props: any) => <em className="italic text-neutral-300" {...props} />,
+  em: (props: ComponentPropsWithoutRef<"em">) => (
+    <em className="italic text-neutral-300" {...props} />
+  ),
 
-  ul: (props: any) => (
+  ul: (props: ComponentPropsWithoutRef<"ul">) => (
     <ul className="mb-6 list-disc space-y-2 pl-10 text-neutral-300" {...props} />
   ),
-  ol: (props: any) => (
+  ol: (props: ComponentPropsWithoutRef<"ol">) => (
     <ol
       className="mb-6 list-decimal space-y-2 pl-10 text-neutral-300"
       {...props}
     />
   ),
-  li: (props: any) => <li className="leading-[1.625]" {...props} />,
+  li: (props: ComponentPropsWithoutRef<"li">) => (
+    <li className="leading-[1.625]" {...props} />
+  ),
 };
 
 export default async function ArticleTemplateEN({

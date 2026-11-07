@@ -67,6 +67,7 @@ export default function ArticleCardPreview({
         href={href}
         className="article-thumb-frame group/thumb relative shrink-0 overflow-hidden rounded-lg border border-white/[0.14] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.45)] transition-all duration-300 hover:border-white/[0.28]"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="block w-full object-cover transition-transform duration-500 group-hover/thumb:scale-[1.015] md:w-[320px]"
           src={finalImage}

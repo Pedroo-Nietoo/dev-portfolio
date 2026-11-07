@@ -153,6 +153,7 @@ export function ProjectCard({ project, ticketCopy }: ProjectCardProps) {
 
               <div className="mt-3.5 flex items-center gap-3.5">
                 <div className="shrink-0 rounded-lg bg-white p-1.5 shadow-md">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(project.href)}`}
                     alt={`QR Code to ${project.name}`}

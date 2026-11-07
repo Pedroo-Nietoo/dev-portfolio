@@ -89,7 +89,7 @@ export default function Navbar() {
 
   const articlesHref = activeLang === "en" ? "/en/articles" : "/articles";
   const isArticlesEnabled =
-    process.env.NEXT_PUBLIC_ENABLE_ARTICLES?.toLowerCase() === "true";
+    process.env.ENABLE_ARTICLES_SECTION?.toLowerCase() === "true";
 
   return (
     <header
