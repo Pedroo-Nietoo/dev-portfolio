@@ -1,4 +1,5 @@
 import ContactSection from "@/components/contact/ContactSection";
+import EducationSection from "@/components/education/EducationSection";
 import ExperienceTimelineSection from "@/components/experience/ExperienceTimelineSection";
 import AboutSection from "@/components/intro/AboutSection";
 import HeroSection from "@/components/intro/HeroSection";
@@ -17,6 +18,7 @@ export default function Home() {
             <AboutSection />
             <SelectedWorkSection />
             <ExperienceTimelineSection />
+            <EducationSection />
             <TechStack />
             <ContactSection />
           </div>
